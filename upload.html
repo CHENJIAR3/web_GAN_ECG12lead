@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--upload.html-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-health Platform</title>
+    <style type="text/css">
+    </style>
+
+<!--    <link href="static/style.css" rel="stylesheet" type="text/css" />-->
+
+</head>
+<body>
+    <h1 style="text-align : center; color:#eae9e9; font-size:100px;background-image:url(./static/background/headsysu.png);background-color: #b1dfbb ">ECG Generator and ECG Classifier on Single Lead</h1>
+    <form method="post" action="/upload" enctype="multipart/form-data" lang="en">
+        <div style="height: 70px; width: 100%;border-bottom: 1px #000 solid" >
+            <input type="file" name="file" style="font-size:x-large;float: left" lang="en">
+            <p style="font-size:x-large;float: left">Sampling frequency:<input type="text" name="fs" value="500" style="font-size:x-large;width:100px;text-align:right">Hz
+            <input type="submit" value="Upload" style="font-size:x-large"/>
+<!--        <p style="font-size:128px">-->
+<!--        </p>-->
+            </div>
+<!--        <hr/>-->
+
+<!--    </form>-->
+<!--<form method="post" action="/"  enctype="multipart/form-data" lang="en">-->
+        <div class="title">
+<!--        <p><h1 style="text-align : center; color :black"></h1></p>-->
+            <h1 style="text-align: center; color: black">
+             {%set classname = ['Normal','AF','I-AVB','LBBB', 'RBBB','PAC','PVC','STD','STE']%}
+             <table  style="width:85%;text-align: center;margin: auto;font-size: large" border="1" cellpadding="0">
+                 <tr>
+                     <th>ECG Class</th>
+                     {%for classecg in classname%}
+                     <th>{{classecg}}</a></th>
+                    {% end %}
+
+                 </tr>
+                 <tr>
+                     <th>Single-Lead</th>
+                 {%for classecg in classname%}
+<!--                     <th> <a href={{classecg}}> {{heartbeat_class[classecg]}}</a></th>-->
+                     <th style=" color:blue;">  {{heartbeat_class[classecg]}}</a></th>
+                 {% end %}
+                 </tr>
+                  <tr>
+                     <th>Generated 12-Lead</th>
+                 {%for classecg in classname%}
+<!--                     <th> <a href={{classecg}}> {{heartbeat_class[classecg]}}</a></th>-->
+                     <th style=" color:red;">  {{heartbeat_class2[classecg]}}</a></th>
+                 {% end %}
+                 </tr>
+             </table>
+                <hr/>
+
+                <img style="margin-left: auto;height: 1100px" src="/img12lead"/>
+
+        </div>
+      <p>
+        <h2 style="color : red;font-size:64px"><a href='/upload'>Homepage</a></h2>
+
+      </p>
+    <h1 style="text-align : center; color : red;font-size:64px">
+    Note: The website applies for preliminary predictions only.
+    </h1>
+    </form>
+    </p>
+    <hr/>
+    <img src="static/logo.png" style="text-align: center">
+
+    <p style="text-align: center;font-size:64px">copyright © 2023,Sun Yat-sen University
+    </p>
+
+
+<!--        <p>-->
+<!--            <h1 style="text-align : center; color: black; background-color: #b1dfbb">Reference: Different kinds of ECG</h1>-->
+<!--&lt;!&ndash;            <img  src="static/NORM2.png" style="background-color: #b1dfbb">&ndash;&gt;-->
+<!--        </p>-->
+<!--            <h1><a href="http://2018.icbeb.org/Challenge.html" style="color: #0056b3">CPSC2018</a></h1>-->
+
+<!--    <script>-->
+<!--            const btn = document.getElementById('btn');-->
+<!--            btn.onclick = function () {-->
+<!--                const file = document.getElementById('file');-->
+<!--                if (file.files.length === 0) {-->
+<!--                    alert('No file');-->
+<!--                    return;-->
+<!--                }-->
+<!--                var reader = new FileReader();-->
+<!--                reader.readAsDataURL(file.files[0]);-->
+<!--                reader.onload = function (e) {-->
+<!--                    document.getElementById('img').src = e.target.result;-->
+<!--                }-->
+<!--            }-->
+<!--        </script>-->
+
+</body>
+
+
+</html>

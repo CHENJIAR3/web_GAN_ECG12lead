@@ -1,0 +1,37 @@
+[common]
+server_addr = 8.134.80.24
+server_port = 7000
+token = 12345678
+
+# 配置ssh服务
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+ # 这个自定义，之后再ssh连接的时候要用
+remote_port = 6000 
+
+[http1]
+type=tcp
+local_port=5000
+local_ip=127.0.0.1
+remote_port=8000
+[http2]
+type=tcp
+local_port=5001
+local_ip=127.0.0.1
+remote_port=7011
+[http3]
+typc=tcp
+local_port=5002
+local_ip=127.0.0.1
+remote_port=7089
+# 配置http服务，可用于小程序开发、远程调试等，如果没有可以不写下面的
+#[web]
+#type = http
+#local_ip = 127.0.0.1
+#local_port = 2200
+# web域名
+#subdomain = 8.134.80.24
+# 自定义的远程服务器端口，例如8080
+#remote_port =80
